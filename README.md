@@ -60,7 +60,7 @@ This is where you will set your schedule to run. My script runs every Sunday. To
 
 - Run main script
 
-	`0 12 * * 0 /bin/bash -c "source /home/ubuntu/GameDayAlerts/bin/activate && python3 /home/ubuntu/GameDayAlerts/Alerts.py"`
+		0 12 * * 0 /bin/bash -c "source /home/ubuntu/GameDayAlerts/bin/activate && python3 /home/ubuntu/GameDayAlerts/Alerts.py"
 
 
 ## Setup Continuous Deployment with Github Actions
