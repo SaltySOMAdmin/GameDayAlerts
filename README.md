@@ -15,23 +15,23 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 
 1.  Install Python3
 
-	`sudo apt install python3`
+		sudo apt install python3
 
 2.  Create a python virtual environment in a directory
 
-	`/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts`
+		/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts
 
 3.  Use the virtual python3 environment
 
-	`source /home/ubuntu/GameDayAlerts/bin/activate`
+		source /home/ubuntu/GameDayAlerts/bin/activate
 
 4.  Install PIP Prereqs
 
-	`pip3 install requests pytz`
+		pip3 install requests pytz
 	
 5.  Setup Discord Webhook - Right click the channel in Discord --> Edit Channel --> Integrations --> Create Webhook. Paste your webhook into webhook.txt.
 	
-	`sudo nano /home/ubuntu/GameDayAlerts/webhook.txt`
+		sudo nano /home/ubuntu/GameDayAlerts/webhook.txt
 
 
 ## Setup Git
@@ -45,15 +45,15 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 
 5. Navigate to a folder you want a local copy of the repo to live, and clone the Github repo to your host:
    1. It's up to you where to put the repo - recommended in a folder like /home/YourUserAcct/Github/ or /home/YourUserAcct/. Once you clone the directory it will create a subfolder with the name of your fork.
-   2. `git clone <url>`
-      1. e.g. `git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git`
+   2. git clone <url>
+      1. e.g. git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git
 
 ## Configure the script.
 - There are several sections you need to customize in the main script (Alerts.py). You'll need to enter your team names and your MLB Team ID (from this link: https://github.com/jasonlttl/gameday-api-docs/blob/master/team-information.md).
 
 - You'll also need to enter the link to your team's schedule from the ESPN API
-`def fetch_ravens_games():
-    url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/schedule"`
+		def fetch_ravens_games():
+			url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/schedule"
 
 ## Crontab Settings
 This is where you will set your schedule to run. My script runs every Sunday. To open your cron settings type this into your terminal: crontab -e
