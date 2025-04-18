@@ -39,7 +39,7 @@ def is_game_of_interest(game_dt, team):
     estimated_end = game_dt + ESTIMATED_DURATIONS[team]
     end_time = estimated_end.time()
 
-    return (datetime.strptime("15:30", "%H:%M").time() <= end_time <= datetime.strptime("17:30", "%H:%M").time())
+    return (datetime.strptime("15:00", "%H:%M").time() <= end_time <= datetime.strptime("17:30", "%H:%M").time())
 
 def fetch_orioles_games():
     team_id = 110  # Orioles
