@@ -1,15 +1,14 @@
-# Prereqs: python3 and pip3 install requests pytz
-
 import requests
 from datetime import datetime, timedelta
 import pytz
 
-# ----- CONFIGURATION -----
+# Configure Team Names here and the hours after start it'll likely finish
 ESTIMATED_DURATIONS = {
     "Orioles": timedelta(hours=3),
     "Ravens": timedelta(hours=3.5),
 }
 
+# Set timezone and days ahead to look.
 TZ = pytz.timezone("America/New_York")
 today = datetime.now(TZ).date()
 end_date = today + timedelta(days=7)
@@ -42,7 +41,7 @@ def is_game_of_interest(game_dt, team):
     return (datetime.strptime("15:00", "%H:%M").time() <= end_time <= datetime.strptime("17:30", "%H:%M").time())
 
 def fetch_orioles_games():
-    team_id = 110  # Orioles
+    team_id = 110  # Orioles - https://github.com/jasonlttl/gameday-api-docs/blob/master/team-information.md
     url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&teamId={team_id}&startDate={today}&endDate={end_date}&gameTypes=R"
     response = requests.get(url)
     data = response.json()

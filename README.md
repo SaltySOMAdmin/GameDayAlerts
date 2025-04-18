@@ -9,7 +9,7 @@
 # Setup
 
 ## Setup a Linux Host
-I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of today. Google Compute and Amazon AWS are similar products. You can also roll your own host with an old PC or a Raspberry Pi. You'll need to know a bit of Linux CLI or you'll need to be ready to learn!  
+I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of today. Google Compute and Amazon AWS are similar products. You can also roll your own host with an old PC or a Raspberry Pi. You'll need to know a bit of Linux CLI or you'll need to be ready to learn! Run these commands through the CLI.
 
 ### Install necessary software prerequisites: 
 
@@ -27,11 +27,11 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 
 4.  Install PIP Prereqs
 
-`pip3 install requests pytz`
+	`pip3 install requests pytz`
 	
 5.  Setup Discord Webhook - Right click the channel in Discord --> Edit Channel --> Integrations --> Create Webhook. Paste your webhook into webhook.txt.
 	
-`sudo nano /home/ubuntu/GameDayAlerts/webhook.txt`
+	`sudo nano /home/ubuntu/GameDayAlerts/webhook.txt`
 
 
 ## Setup Git
@@ -49,57 +49,19 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
       1. e.g. `git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git`
 
 ## Configure the script.
-There are several sections you need to customize in the main script (CopyPosts-UFOs_Archives.py). You'll need to enter your source and destination subs.
+- There are several sections you need to customize in the main script (Alerts.py). You'll need to enter your team names and your MLB Team ID (from this link: https://github.com/jasonlttl/gameday-api-docs/blob/master/team-information.md).
 
-	source_subreddit = source_reddit.subreddit('ufos')
+- You'll also need to enter the link to your team's schedule from the ESPN API
+`def fetch_ravens_games():
+    url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/bal/schedule"`
 
-	destination_subreddit = archives_reddit.subreddit('UFOs_Archive')
-	
-You'll also need to set your timedelta. I run my script every 14 minutes but the script checks posts that are created within the past 28 minutes. This gives two opportunities for posts to be duplicated. 
-
-	cutoff_time = current_time - timedelta(minutes=28)
-	
-Edit the path for the two log files to the path you cloned this repository to. 
-	
-	logging.basicConfig(filename='/home/YourUserAcct/Github/YourFork/error_log.txt', level=logging.ERROR, 
-
-and
-
-	PROCESSED_FILE = "/home/YourUserAcct/Github/YourFork/processed_posts.txt"
-	
-Enter your credentials into config.py. You can use different accounts for the source and destination subreddits or you can use one account for both. I'm using the credentials I have saved in destination_ for both. Specify in the main script under the section with "# Reddit API credentials"
-	
-	source_client_id=""
-	source_client_secret=""
-	source_password=""
-	source_username=""
-	
-and
-
-	destination_client_id=""
-	destination_client_secret=""
-	destination_password=""
-	destination_username=""
-
-DailyRemovedFlair.py will need quite a bit more customization and may not be necessary for your needs. If it's a feature you need you'll need to edit the script to include a list of 'removal flairs' if the home subreddit supports them. You'll also need to update the script with your subreddit name and the path to your log file. This can be implemented at a later point as well as the main script does not hinge on it. 
-
-### Crontab Settings
-This is where you will set your schedule to run. My script runs every 14 minutes (Example: 10:00, 10:14, 10:28, 10:42, 10:56) and it logs actions to cron_log.txt Errors are logged within the script to error_log.txt as they happen. To open your cron settings type this into your terminal: crontab -e
+## Crontab Settings
+This is where you will set your schedule to run. My script runs every Sunday. To open your cron settings type this into your terminal: crontab -e
 
 - Run main script
 
-		*/14 * * * /usr/bin/python3 /home/ubuntu/Reddit-UFOs_Archive/CopyPosts-UFOs_Archives.py >> /home/ubuntu/Reddit-UFOs_Archive/cron_log.txt 2>&1
+		`0 12 * * 0 /bin/bash -c "source /home/ubuntu/GameDayAlerts/bin/activate && python3 /home/ubuntu/GameDayAlerts/Alerts.py"`
 
-- Update flair for removed posts script, if incorporated.
-
-		2 */8 * * * /usr/bin/python3 /home/ubuntu/Reddit-UFOs_Archive/DailyRemovedFlair.py >> /home/ubuntu/Reddit-UFOs_Archive/removed_posts_log.txt 2>&1
-
-
-- Upload logs to Discord Webhook then wipe the log
-
-		*/15 * * * * /home/ubuntu/Reddit-UFOs_Archive/forward_error_log.sh
-		*/15 * * * * /home/ubuntu/Reddit-UFOs_Archive/forward_cron_log.sh
-		10 */8 * * * /home/ubuntu/Reddit-UFOs_Archive/forward_removed_posts_log.sh
 
 ### Setup Continuous Deployment with Github Actions
 
