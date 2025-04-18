@@ -1,4 +1,4 @@
-#pip3 install requests pytz
+# Prereqs: pip3 install requests pytz
 
 import requests
 from datetime import datetime, timedelta
