@@ -13,20 +13,21 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 
 ### Install necessary software prerequisites: 
 
-#### 1) Install Python3
+1.  Install Python3
 	sudo apt install python3
 
-#### 2) Create a python virtual environment in a directory
+2.  Create a python virtual environment in a directory
 	/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts
 
-#### 3) Use the virtual python3 environment
+3.  Use the virtual python3 environment
 	source /home/ubuntu/GameDayAlerts/bin/activate
 
-#### 4) Install PIP Prereqs
+4.  Install PIP Prereqs
 	pip3 install requests pytz
 	
-#### 5) Setup Dicrosd Webhook
+5.  Setup Discord Webhook
 - A Discord webhook needs to be created and entered into webhook.txt - you can setup two channels or use the same webhook for both. Right clicking the channel in Discord --> Edit Channel --> Integrations --> Create Webhook. Make a note of your Webhook URL.
+	
 	sudo nano /home/ubuntu/GameDayAlerts/webhook.txt
 
 
