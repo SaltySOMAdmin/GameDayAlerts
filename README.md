@@ -14,21 +14,20 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 ### Install necessary software prerequisites: 
 
 1.  Install Python3
-	sudo apt install python3
+	'sudo apt install python3'
 
 2.  Create a python virtual environment in a directory
-	/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts
+	'/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts'
 
 3.  Use the virtual python3 environment
-	source /home/ubuntu/GameDayAlerts/bin/activate
+	'source /home/ubuntu/GameDayAlerts/bin/activate'
 
 4.  Install PIP Prereqs
-	pip3 install requests pytz
+	'pip3 install requests pytz'
 	
-5.  Setup Discord Webhook
-- A Discord webhook needs to be created and entered into webhook.txt - you can setup two channels or use the same webhook for both. Right clicking the channel in Discord --> Edit Channel --> Integrations --> Create Webhook. Make a note of your Webhook URL.
+5.  Setup Discord Webhook - Right click the channel in Discord --> Edit Channel --> Integrations --> Create Webhook. Paste your webhook into webhook.txt.
 	
-	sudo nano /home/ubuntu/GameDayAlerts/webhook.txt
+	'sudo nano /home/ubuntu/GameDayAlerts/webhook.txt'
 
 
 ## Setup Git
@@ -36,14 +35,14 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 
 2. [Go here and install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you don’t have it already.
 
-3. [Assuming you're reading this on the repo page](https://github.com/SaltySOMAdmin/Reddit-UFOs_Archive), select ‘fork’ to create a copy of it to your Github account. 
+3. [Assuming you're reading this on the repo page](https://github.com/SaltySOMAdmin/GameDayAlerts), select ‘fork’ to create a copy of it to your Github account. 
 
-4. From your new repo, select **Code** and then under **Clone** copy the HTTPS URL (e.g. https://github.com/SaltySOMAdmin/Reddit-UFOs_Archive.git) to download a local copy
+4. From your new repo, select **Code** and then under **Clone** copy the HTTPS URL (e.g. https://github.com/SaltySOMAdmin/GameDayAlerts.git) to download a local copy
 
 5. Navigate to a folder you want a local copy of the repo to live, and clone the Github repo to your host:
    1. It's up to you where to put the repo - recommended in a folder like /home/YourUserAcct/Github/ or /home/YourUserAcct/. Once you clone the directory it will create a subfolder with the name of your fork.
    2. `git clone <url>`
-      1. e.g. `git clone https://github.com/SaltySOMAdmin/Reddit-UFOs_Archive.git`
+      1. e.g. `git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git`
 
 ## Configure the script.
 There are several sections you need to customize in the main script (CopyPosts-UFOs_Archives.py). You'll need to enter your source and destination subs.
