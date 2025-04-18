@@ -14,12 +14,15 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 ### Install necessary software prerequisites: 
 
 1.  Install Python3
-	'sudo apt install python3'
+
+	`sudo apt install python3`
 
 2.  Create a python virtual environment in a directory
-	'/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts'
+
+	`/usr/bin/python3 -m venv /home/ubuntu/GameDayAlerts`
 
 3.  Use the virtual python3 environment
+
 	`source /home/ubuntu/GameDayAlerts/bin/activate`
 
 4.  Install PIP Prereqs
