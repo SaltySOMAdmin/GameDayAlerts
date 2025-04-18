@@ -11,7 +11,21 @@
 ## Setup a Linux Host
 I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of today. Google Compute and Amazon AWS are similar products. You can also roll your own host with an old PC or a Raspberry Pi. You'll need to know a bit of Linux CLI or you'll need to be ready to learn! Run these commands through the CLI.
 
-### Install necessary software prerequisites: 
+## Setup Git
+1. [Create a Github account.](https://github.com/join)
+
+2. [Go here and install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you don’t have it already.
+
+3. [Assuming you're reading this on the repo page](https://github.com/SaltySOMAdmin/GameDayAlerts), select ‘fork’ to create a copy of it to your Github account. 
+
+4. From your new repo, select **Code** and then under **Clone** copy the HTTPS URL (e.g. https://github.com/SaltySOMAdmin/GameDayAlerts.git) to download a local copy
+
+5. Navigate to a folder you want a local copy of the repo to live, and clone the Github repo to your host:
+   1. It's up to you where to put the repo - recommended in a folder like /home/YourUserAcct/Github/ or /home/YourUserAcct/. Once you clone the directory it will create a subfolder with the name of your fork.
+   2. git clone <url>
+      1. e.g. git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git
+
+## Install necessary software prerequisites: 
 
 1.  Install Python3
 
@@ -33,20 +47,6 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 	
 		sudo nano /home/ubuntu/GameDayAlerts/webhook.txt
 
-
-## Setup Git
-1. [Create a Github account.](https://github.com/join)
-
-2. [Go here and install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) if you don’t have it already.
-
-3. [Assuming you're reading this on the repo page](https://github.com/SaltySOMAdmin/GameDayAlerts), select ‘fork’ to create a copy of it to your Github account. 
-
-4. From your new repo, select **Code** and then under **Clone** copy the HTTPS URL (e.g. https://github.com/SaltySOMAdmin/GameDayAlerts.git) to download a local copy
-
-5. Navigate to a folder you want a local copy of the repo to live, and clone the Github repo to your host:
-   1. It's up to you where to put the repo - recommended in a folder like /home/YourUserAcct/Github/ or /home/YourUserAcct/. Once you clone the directory it will create a subfolder with the name of your fork.
-   2. git clone <url>
-      1. e.g. git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git
 
 ## Configure the script.
 - There are several sections you need to customize in the main script (Alerts.py). You'll need to enter your team names and your MLB Team ID (from this link: https://github.com/jasonlttl/gameday-api-docs/blob/master/team-information.md).
