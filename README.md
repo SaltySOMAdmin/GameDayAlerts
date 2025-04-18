@@ -60,10 +60,10 @@ This is where you will set your schedule to run. My script runs every Sunday. To
 
 - Run main script
 
-		`0 12 * * 0 /bin/bash -c "source /home/ubuntu/GameDayAlerts/bin/activate && python3 /home/ubuntu/GameDayAlerts/Alerts.py"`
+	`0 12 * * 0 /bin/bash -c "source /home/ubuntu/GameDayAlerts/bin/activate && python3 /home/ubuntu/GameDayAlerts/Alerts.py"`
 
 
-### Setup Continuous Deployment with Github Actions
+## Setup Continuous Deployment with Github Actions
 
 Allows you to deploy your code via Github vs logging into the VPS and updating the code/uploading a new file. Allows for easier collaboration as well. I followed a guide similar to this one:
 https://docs.github.com/en/actions/use-cases-and-examples/deploying/deploying-with-github-actions
