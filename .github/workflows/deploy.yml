@@ -11,7 +11,7 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: |
-            cd /home/ubuntu/Reddit-UFOs_Archive/
+            cd /home/ubuntu/GameDayAlerta/
             git pull origin main
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
