@@ -22,7 +22,7 @@ I'm using Ubuntu LTS on an Oracle Cloud VM. There are free-tiers available as of
 
 5. Navigate to a folder you want a local copy of the repo to live, and clone the Github repo to your host:
    1. It's up to you where to put the repo - recommended in a folder like /home/YourUserAcct/Github/ or /home/YourUserAcct/. Once you clone the directory it will create a subfolder with the name of your fork.
-   2. git clone <url>
+   2. git clone `<url>`
       1. e.g. git clone https://github.com/SaltySOMAdmin/GameDayAlerts.git
 
 ## Install necessary software prerequisites: 
