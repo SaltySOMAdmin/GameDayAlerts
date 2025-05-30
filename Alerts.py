@@ -11,7 +11,7 @@ ESTIMATED_DURATIONS = {
 # Set timezone and days ahead to look.
 TZ = pytz.timezone("America/New_York")
 today = datetime.now(TZ).date()
-end_date = today + timedelta(days=7)
+end_date = today + timedelta(days=14)
 
 def send_to_discord(message):
     try:
